@@ -1,0 +1,23 @@
+{
+    "languages": [
+        {
+            "name": "English",
+            "code": "en"
+        },
+        {
+            "name": "French",
+            "code": "fr"
+        }
+    ],
+    "translation": {
+        "en": {
+            "home": "Home"
+        },
+        "fr": {
+            "home": "Accueil"
+        },
+        "home": [
+            "Home", "Accueil"
+        ]
+    }
+}
