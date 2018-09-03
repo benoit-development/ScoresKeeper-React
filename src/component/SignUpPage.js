@@ -123,7 +123,7 @@ class SignUpForm extends Component {
         <button
           type="submit"
           disabled={isInvalid}
-            className="btn btn-sm btn-success my-2 my-sm-0">
+          className="btn btn-sm btn-success my-2 my-sm-0">
           Sign Up
         </button>
 
