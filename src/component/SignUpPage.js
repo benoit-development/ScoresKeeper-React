@@ -44,7 +44,9 @@ class SignUpForm extends Component {
     console.log('onSubmit');
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        db.doCreateUser(authUser.user.uid, username, email)
+        const infos = { displayName: username, provider: "email" };
+        const user = authUser.user;
+        db.doCreateUser({ ...user, ...infos })
           .then(() => {
             console.log('OK');
             this.setState({ ...INITIAL_STATE });

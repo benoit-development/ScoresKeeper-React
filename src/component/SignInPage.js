@@ -61,8 +61,9 @@ class SignInForm extends Component {
     } = this.props;
 
     auth.doSignInWithGoogleAccount()
-      .then(() => {
+      .then(authUser => {
         this.setState({ ...INITIAL_STATE });
+        db.doCreateUser(authUser.user);
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -77,8 +78,9 @@ class SignInForm extends Component {
     } = this.props;
 
     auth.doSignInWithFacebookAccount()
-      .then(() => {
+      .then(authUser => {
         this.setState({ ...INITIAL_STATE });
+        db.doCreateUser(authUser.user);
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -93,8 +95,9 @@ class SignInForm extends Component {
     } = this.props;
 
     auth.doSignInWithTwitterAccount()
-      .then(() => {
+      .then(authUser => {
         this.setState({ ...INITIAL_STATE });
+        db.doCreateUser({ ...authUser.user,  ...{username: authUser.user.email}});
         history.push(routes.HOME);
       })
       .catch(error => {
